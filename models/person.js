@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const connectUrl = process.env.MONGODB_URI
 mongoose.connect(connectUrl)
-    .then(result => {
+    .then(() => {
         console.log('successfully connected')
     })
     .catch(error => {

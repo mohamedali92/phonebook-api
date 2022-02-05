@@ -3,9 +3,9 @@ const mongoose = require('mongoose')
 const numCmdLineArgs = process.argv.length
 
 function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min) + min) //The maximum is exclusive and the minimum is inclusive
 }
 
 
@@ -25,7 +25,7 @@ const personSchema = new mongoose.Schema({
 })
 const personModel = mongoose.model('Person', personSchema)
 
-if (numCmdLineArgs == 3) {
+if (numCmdLineArgs === 3) {
     personModel.find({})
         .then(result => {
             result.forEach(person => {
@@ -34,7 +34,7 @@ if (numCmdLineArgs == 3) {
             mongoose.connection.close()
         })
 }
-else if (numCmdLineArgs == 5) {
+else if (numCmdLineArgs === 5) {
     const name = process.argv[3]
     const number = process.argv[4]
     console.log(name, number)
@@ -51,7 +51,7 @@ else if (numCmdLineArgs == 5) {
     })
 }
 else {
-    console.log("Unidentified number of arguments")
+    console.log('Unidentified number of arguments')
 }
 
 
